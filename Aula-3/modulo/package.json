@@ -1,0 +1,19 @@
+{
+  "name": "macacagem-suprema",
+  "version": "1.0.1",
+  "description": "",
+  "main": "./lib/index.js",
+  "bin": {
+    "Aula-03": "bin/mymodule.js"
+  },
+  "preferGlobal": true,
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
