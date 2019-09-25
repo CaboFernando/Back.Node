@@ -1,5 +1,5 @@
 exports.get = (req, res) => {
-    res.render('login.ejs');
+    res.render('loginView.ejs');
 };
 
 exports.post = (req, res) => {
