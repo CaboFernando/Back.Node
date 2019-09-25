@@ -5,7 +5,7 @@ exports.get = (req, res) => {
         ...req.session,
         imgMD5: crypto.createHash('md5').update(req.session.email).digest("hex")
     };
-    res.render('post.ejs', {        
+    res.render('postView.ejs', {        
         user: user
     });
 };

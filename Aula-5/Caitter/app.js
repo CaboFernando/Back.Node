@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
-const indexRouter = require('./routers/index');
-const loginRouter = require('./routers/login');
-const postRouter = require('./routers/post');
+const indexRouter = require('./routers/indexRouter');
+const loginRouter = require('./routers/loginRouter');
+const postRouter = require('./routers/postRouter');
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
