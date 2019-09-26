@@ -30,8 +30,7 @@
         </div>
 
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
-            <img class="mr-3 rounded" width="48" height="48"
-                src="https://www.gravatar.com/avatar/<%= user.imgMD5 %>">
+            <img class="mr-3 rounded" width="48" height="48" src="https://www.gravatar.com/avatar/<%= user.imgMD5 %>">
             <div class="lh-100">
                 <h6 class="mb-0 text-white lh-100">Olá, <strong><%= user.nome %></strong></h6>
                 <small><%= user.email %></small>
@@ -41,37 +40,24 @@
                 <span class="oi oi-task"></span>
                 Escrever novo post
             </button>
+            <a href="/getout" class="pl-1 btn btn-sm btn-danger">Saindo Da Jaula</a>
         </div>
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <h6 class="border-bottom border-gray pb-2 mb-0">Últimos posts</h6>
+            <% post.forEach(post => { %>
             <div class="media text-muted pt-3">
                 <img class="bd-placeholder-img mr-2 rounded" width="32" height="32"
-                    src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50">
+                    src="https://www.gravatar.com/avatar/<%= post.img %>">
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <strong class="d-block text-gray-dark">@username</strong>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    <strong class="d-block text-gray-dark"><%= post.nome %></strong>
+                    <%= post.texto %>
+                </p>
+                <p>
+                    <%= post.data %>
                 </p>
             </div>
-            <div class="media text-muted pt-3">
-                <img class="bd-placeholder-img mr-2 rounded" width="32" height="32"
-                    src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50">
-                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <strong class="d-block text-gray-dark">@username</strong>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                </p>
-            </div>
-            <div class="media text-muted pt-3">
-                <img class="bd-placeholder-img mr-2 rounded" width="32" height="32"
-                    src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50">
-                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <strong class="d-block text-gray-dark">@username</strong>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                </p>
-            </div>
+            <% }); %>
             <small class="d-block text-right mt-3">
                 <a href="#">Mais posts</a>
             </small>
@@ -90,37 +76,38 @@
     <div class="modal" id="newPostModal" tabindex="-1" role="dialog" aria-labelledby="Novo Post" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Escrever post ...</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
+                <form method="POST" action="/post/new">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Escrever post ...</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
                         <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                            <textarea name="texto" class="form-control" id="exampleFormControlTextarea1"
                                 placeholder="Digite aqui o seu post..." rows="3" maxlength="140"></textarea>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary mr-auto" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-lg btn-primary">Postar</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary mr-auto"
+                            data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-lg btn-primary">Postar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>
