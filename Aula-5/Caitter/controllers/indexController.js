@@ -4,3 +4,8 @@ exports.get = (req, res) => {
         res.redirect('/post');
     res.redirect('login');    
 };
+
+exports.getout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/login');
+};
