@@ -1,0 +1,26 @@
+{
+  "name": "Post",
+  "plural": "Posts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user": {
+      "type": "string",
+      "required": true
+    },
+    "texto": {
+      "type": "string",
+      "required": true
+    },
+    "timestamp": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Exemplo-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sarja",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
